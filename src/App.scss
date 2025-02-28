@@ -1,0 +1,17 @@
+@use "@/styles/mixins";
+@use "@/styles/colors";
+
+body {
+    background: {
+        color: colors.$red;
+        image: url('./assets/images/bg-intro-mobile.png');
+        position: top;
+        repeat: no-repeat;
+        size: cover;
+        attachment: fixed;
+    }
+
+    @media (min-width: 1024px) {
+        background-image: url('./assets/images/bg-intro-desktop.png');
+    }
+}
