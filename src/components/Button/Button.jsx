@@ -1,7 +1,7 @@
 
 const Button = () => {
   return (
-    <button className="form__button" type="submit">Claim your free trial</button>
+    <button className="form__button" type="submit" aria-label="Claim your free trial">Claim your free trial</button>
   )
 }
 
