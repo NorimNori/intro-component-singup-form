@@ -1,7 +1,7 @@
 
 const Button = () => {
   return (
-    <div>Button</div>
+    <button className="form__button" type="submit">Claim your free trial</button>
   )
 }
 
