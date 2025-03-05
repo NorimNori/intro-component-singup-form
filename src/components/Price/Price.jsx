@@ -1,3 +1,4 @@
+import './Price.scss'
 
 const Price = () => {
   return (

@@ -1,0 +1,13 @@
+@use "@/styles/colors";
+
+.form__button {
+    border: none;
+    border-bottom: 3px inset colors.$darkGreen;
+    padding: 1.1rem;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: colors.$green;
+}

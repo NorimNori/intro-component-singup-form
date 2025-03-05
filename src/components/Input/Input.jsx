@@ -1,3 +1,4 @@
+import './Input.scss'
 
 const Input = ({ type, placeholder }) => {
   return (

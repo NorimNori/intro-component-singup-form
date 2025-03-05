@@ -1,0 +1,37 @@
+@use "@/styles/colors";
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    white-space: nowrap;
+}
+
+.form {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: colors.$white;
+    box-shadow: 0px 8px 0 colors.$transparentBlack;
+
+    &__terms {
+        color: colors.$grayishBlue;
+        padding: 0 1.8rem;
+        font-size: .7rem;
+    }
+
+    &__terms-highlight {
+        text-decoration: none;
+        color: colors.$red;
+        font-weight: 600;
+        line-height: 2;
+    }
+}

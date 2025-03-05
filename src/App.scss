@@ -15,3 +15,8 @@ body {
         background-image: url('./assets/images/bg-intro-desktop.png');
     }
 }
+
+.trial {
+    @include mixins.center-grid;
+    gap: 1.5rem;
+}

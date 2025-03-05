@@ -9,8 +9,10 @@ function App() {
     <>
     <main>
       <Hero />
-      <Price />
-      <Form /> 
+      <section className='trial'>
+        <Price />
+        <Form /> 
+      </section>
     </main>
     </>
   )
