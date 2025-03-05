@@ -10,13 +10,29 @@ body {
         size: cover;
         attachment: fixed;
     }
+}
 
-    @media (min-width: 1024px) {
-        background-image: url('./assets/images/bg-intro-desktop.png');
-    }
+main {
+    max-width: 40rem;
 }
 
 .trial {
     @include mixins.center-grid;
     gap: 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+
+    body {
+        background-image: url('./assets/images/bg-intro-desktop.png');
+    }
+
+    main {
+        @include mixins.center-grid;
+        grid-template-columns: 1fr 1fr;
+
+        max-width: 85rem;
+        padding: 0 3rem;
+        gap: 3rem;
+    }
 }
