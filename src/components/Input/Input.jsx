@@ -13,7 +13,6 @@ const Input = ({ type, name, id, value, onChange, placeholder }) => {
       placeholder={placeholder} 
       className="form__input form__input--error"
       aria-label={placeholder}
-      required
       />
     </label>
   )

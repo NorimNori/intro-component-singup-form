@@ -1,11 +1,32 @@
+import { useState } from "react";
 import useForm from "../../hooks/useForm";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import './Form.scss'
 
 const Form = () => {
+  const [first_name_error, set_first_name_error] = useState(false);
+  const [last_name_error, set_last_name_error] = useState(false);
+  const [email_error, set_email_error] = useState(false);
+  const [password_error, set_password_error] = useState(false);
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const sendData = async (data) => {
-    console.log(data)
+    let hasError = false;
+
+    set_first_name_error(!data.first_name);
+    set_last_name_error(!data.last_name);
+    set_email_error(!emailRegex.test(data.email));
+    set_password_error(!data.password);
+
+    if (!data.first_name || !data.last_name || !emailRegex.test(data.email) || !data.password) {
+      hasError = true;
+    }
+
+    if (!hasError) {
+      console.log(data);
+    }
   }
 
   const { input, handleInputChange, handleSubmit } = useForm(sendData, {
@@ -14,6 +35,7 @@ const Form = () => {
     email: '',
     password: ''
   })
+  
   return (
     <section className="form-container" aria-labelledby="form-title">
       <h2 id="form-title" className="visually-hidden">Sign up for free trial</h2>
