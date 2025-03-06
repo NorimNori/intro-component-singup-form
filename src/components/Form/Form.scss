@@ -38,4 +38,17 @@
         font-weight: 600;
         line-height: 2;
     }
+
+    &__input--error {
+        border: 2px solid colors.$red;
+        outline: colors.$red;
+    }
+
+    &__input--error::placeholder {
+        color: colors.$white;
+    }
+
+    &__input--email::placeholder {
+        color: colors.$red;
+    }
 }

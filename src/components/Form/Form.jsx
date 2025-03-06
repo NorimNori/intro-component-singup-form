@@ -22,6 +22,7 @@ const Form = () => {
 
     if (!data.first_name || !data.last_name || !emailRegex.test(data.email) || !data.password) {
       hasError = true;
+      console.log("error")
     }
 
     if (!hasError) {
@@ -35,7 +36,7 @@ const Form = () => {
     email: '',
     password: ''
   })
-  
+
   return (
     <section className="form-container" aria-labelledby="form-title">
       <h2 id="form-title" className="visually-hidden">Sign up for free trial</h2>
@@ -49,7 +50,10 @@ const Form = () => {
         name="first_name"
         value={input.first_name}
         onChange={handleInputChange}        
-        placeholder="First Name" 
+        placeholder="First Name"
+        className={`form__input ${first_name_error ? "form__input--error" : ""}`}
+        style={{ display: email_error ? "block" : "none" }}
+        warnning="First Name cannot be empty"
         />
 
         <Input 
@@ -58,7 +62,10 @@ const Form = () => {
         name="last_name"
         value={input.last_name}
         onChange={handleInputChange}  
-        placeholder="Last Name" 
+        placeholder="Last Name"
+        className={`form__input ${last_name_error ? "form__input--error" : ""}`}
+        style={{ display: email_error ? "block" : "none" }}
+        warnning="Last Name cannot be empty"
         />
 
         <Input 
@@ -67,7 +74,10 @@ const Form = () => {
         name="email"
         value={input.email}
         onChange={handleInputChange} 
-        placeholder="Email address" 
+        placeholder={`${email_error ? "email@example/com" : "Email address"}`}
+        className={`form__input ${email_error ? "form__input--error form__input--email" : ""}`}
+        style={{ display: email_error ? "block" : "none" }}
+        warnning="Looks like this is not an email"
         />
 
         <Input 
@@ -76,7 +86,10 @@ const Form = () => {
         name="password"
         value={input.password}
         onChange={handleInputChange} 
-        placeholder="Password" 
+        placeholder="Password"
+        className={`form__input ${password_error ? "form__input--error" : ""}`}
+        style={{ display: email_error ? "block" : "none" }}
+        warnning="Password cannot be empty"
         />
 
         <Button />

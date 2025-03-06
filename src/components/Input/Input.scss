@@ -9,6 +9,37 @@
     &::placeholder {
         font-size: .95rem;
         font-weight: 700;
+        padding-left: .5em;
         color: colors.$darklue;
+    }
+
+    &--warnning {
+        color: colors.$red;
+        font-size: .7rem;
+        font-style: italic;
+        font-weight: 500;
+        text-align: right;
+        padding: .5em 0 .2em;
+        display: none;
+    }
+
+    &--label {
+        position: relative;
+    }
+
+    &--error--icon {
+        width: 1.7em;
+        height: 1.7em;
+
+        position: absolute;
+        right: 1.5em;
+        top: .9em;
+
+        background: {
+            image: url('../../assets/images/icon-error.svg');
+            position: center;
+            repeat: no-repeat;
+            size: cover;
+        }
     }
 }
