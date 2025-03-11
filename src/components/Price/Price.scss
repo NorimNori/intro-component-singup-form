@@ -1,13 +1,12 @@
 @use "@/styles/colors";
+@use "@/styles/mixins";
 
 .price{
     width: 100%;
-    color: white;
-    padding: 1.1em 5em;
     text-align: center;
-    font-size: .93rem;
     line-height: 1.7;
     border-radius: 10px;
     background-color: colors.$blue;   
     box-shadow: 0px 8px 0 colors.$transparentBlack;
+    @include mixins.style(.93rem, 400, colors.$white, 1.1em 5em);
 }
