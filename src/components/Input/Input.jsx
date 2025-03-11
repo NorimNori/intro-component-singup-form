@@ -1,6 +1,6 @@
 import './Input.scss'
 
-const Input = ({ type, name, id, value, onChange, placeholder, className, warnning, style }) => {
+const Input = ({ type, name, id, value, onChange, placeholder, className, warning, style }) => {
   return (
     <label className="form__input--label">
       <span className="visually-hidden">{placeholder}</span>
@@ -23,7 +23,7 @@ const Input = ({ type, name, id, value, onChange, placeholder, className, warnni
       className='form__input--warnning'
       style={style}
       >
-        {warnning}
+        {warning}
       </p>
     </label>
   )

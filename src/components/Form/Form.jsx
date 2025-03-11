@@ -5,29 +5,34 @@ import Input from "../Input/Input";
 import './Form.scss'
 
 const Form = () => {
-  const [first_name_error, set_first_name_error] = useState(false);
-  const [last_name_error, set_last_name_error] = useState(false);
-  const [email_error, set_email_error] = useState(false);
-  const [password_error, set_password_error] = useState(false);
+  const [errors, setErrors] = useState({
+    first_name: false,
+    last_name: false,
+    email: false,
+    password: false,
+  });
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[^\s@]+@(gmail|hotmail|yahoo|outlook|live|icloud|aol|protonmail|zoho|yandex)\.com$/i;
 
   const sendData = async (data) => {
-    let hasError = false;
 
-    set_first_name_error(!data.first_name);
-    set_last_name_error(!data.last_name);
-    set_email_error(!emailRegex.test(data.email));
-    set_password_error(!data.password);
+    const updatedErrors = {
+      first_name: !data.first_name,
+      last_name: !data.last_name,
+      email: !emailRegex.test(data.email),
+      password: !data.password,
+    };
+  
+    setErrors(updatedErrors);
 
-    if (!data.first_name || !data.last_name || !emailRegex.test(data.email) || !data.password) {
-      hasError = true;
-      console.log("error")
+    const isValid = !updatedErrors.first_name && !updatedErrors.last_name && !updatedErrors.email && !updatedErrors.password;
+
+    if (!isValid) {
+      console.log("error");
+      return;
     }
 
-    if (!hasError) {
-      console.log(data);
-    }
+    console.log(data);
   }
 
   const { input, handleInputChange, handleSubmit } = useForm(sendData, {
@@ -51,9 +56,9 @@ const Form = () => {
         value={input.first_name}
         onChange={handleInputChange}        
         placeholder="First Name"
-        className={`form__input ${first_name_error ? "form__input--error" : ""}`}
-        style={{ display: email_error ? "block" : "none" }}
-        warnning="First Name cannot be empty"
+        className={`form__input ${errors.first_name ? "form__input--error" : ""}`}
+        style={{ display: errors.first_name ? "block" : "none" }}
+        warning={`${errors.first_name ? "First Name cannot be empty" : ""}`}
         />
 
         <Input 
@@ -63,9 +68,9 @@ const Form = () => {
         value={input.last_name}
         onChange={handleInputChange}  
         placeholder="Last Name"
-        className={`form__input ${last_name_error ? "form__input--error" : ""}`}
-        style={{ display: email_error ? "block" : "none" }}
-        warnning="Last Name cannot be empty"
+        className={`form__input ${errors.last_name ? "form__input--error" : ""}`}
+        style={{ display: errors.last_name ? "block" : "none" }}
+        warning={errors.last_name ? "Last Name cannot be empty" : ""}
         />
 
         <Input 
@@ -74,10 +79,10 @@ const Form = () => {
         name="email"
         value={input.email}
         onChange={handleInputChange} 
-        placeholder={`${email_error ? "email@example/com" : "Email address"}`}
-        className={`form__input ${email_error ? "form__input--error form__input--email" : ""}`}
-        style={{ display: email_error ? "block" : "none" }}
-        warnning="Looks like this is not an email"
+        placeholder={`${errors.email ? "email@example/com" : "Email address"}`}
+        className={`form__input ${errors.email ? "form__input--error" : ""}`}
+        style={{ display: errors.email ? "block" : "none" }}
+        warning={errors.email ? "Looks like this is not an email" : ""}
         />
 
         <Input 
@@ -87,9 +92,9 @@ const Form = () => {
         value={input.password}
         onChange={handleInputChange} 
         placeholder="Password"
-        className={`form__input ${password_error ? "form__input--error" : ""}`}
-        style={{ display: email_error ? "block" : "none" }}
-        warnning="Password cannot be empty"
+        className={`form__input ${errors.password ? "form__input--error" : ""}`}
+        style={{ display: errors.password ? "block" : "none" }}
+        warning={errors.password ? "Password cannot be empty" : ""}
         />
 
         <Button />
