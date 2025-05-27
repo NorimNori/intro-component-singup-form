@@ -50,4 +50,9 @@
     &__input--email::placeholder {
         color: colors.$red;
     }
+
+    &__success-message {
+        @include mixins.style(.7rem, 400, colors.$red, 0);
+        margin: 0 auto;
+    }
 }
