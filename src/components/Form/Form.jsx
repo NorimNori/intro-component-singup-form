@@ -3,6 +3,7 @@ import useForm from "../../hooks/useForm";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import "./Form.scss";
+import { sendSignupEmail } from "../../services/emailService";
 
 const Form = () => {
   const [errors, setErrors] = useState({
@@ -35,6 +36,15 @@ const Form = () => {
     if (!isValid) {
       console.log("error");
       return;
+    }
+
+    try {
+      const response = await sendSignupEmail(data);
+      console.log("SUCCESS!", response.status, response.text);
+      setSubmittedEmail(data.email);
+      setTimeout(() => setSubmittedEmail(""), 4000);
+    } catch (err) {
+      console.error("FAILED...", err);
     }
 
     setSubmittedEmail(data.email);
