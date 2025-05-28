@@ -34,7 +34,7 @@ In this challenge, participants will practice building a responsive **sign-up fo
   - Any input field is left empty.
   - The email address is incorrectly formatted.
   
-Participants are encouraged to use any tools or libraries they feel comfortable with to complete the challenge, offering an opportunity to explore and practice different techniques while building the form.
+To enhance the user experience, a custom email confirmation feature was added using the free plan of EmailJS. This service sends a confirmation message to the email address provided by the user upon successful form submission. While the form does not store or register the submitted data—since it is built entirely on the frontend—this implementation offers clear visual feedback, reassuring users that their information was successfully sent
 
 ![Preview](./src/assets/images/desktop-preview.jpg)
 
@@ -50,6 +50,10 @@ These are the screenshots of the implemented solution:
 
 ![Hover](./src/assets/images/singup_error.png)
 
+- **📬 Sent mail**
+
+![sent mail](./src/assets/images/email_sent.png)
+
 -  **📱 Mobile version**
 
 ![Mobile](./src/assets/images/singup_mobile.png)
@@ -61,7 +65,7 @@ These are the screenshots of the implemented solution:
 
 -  components folder: [components](https://github.com/NorimNori/intro-component-singup-form/tree/main/src/components)
 
--  Live Site URL: [on Netlify](https://intro-component-with-singup-by-gr.netlify.app/)
+-  Live Site URL: [on Netlify](https://new-component-with-singup-form-by-gr.netlify.app/)
 
 ##  📌 My process
 
@@ -85,6 +89,8 @@ These are the screenshots of the implemented solution:
 
 -  Google fonts
 
+-  EmailJS
+
 ###  🔬 What I learned
 
 I learned that organizing components into folders with the same name can sometimes make imports a bit confusing. To address this, I implemented an `index.js` file in each folder to simplify and clarify the import process. Additionally, I gained valuable experience in creating **custom hooks** and **handling form validation errors**, which enhanced both the functionality and user experience of the form.
@@ -93,6 +99,8 @@ I learned that organizing components into folders with the same name can sometim
 -  [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript) -  This link leads to the official Mozilla Developer Network (MDN) JavaScript documentation. It offers a comprehensive guide to understanding JavaScript, covering the language's syntax, concepts, and features. The resource is perfect for both beginners and advanced developers who want to dive deeper into JavaScript fundamentals and best practices.
 
 -  [JavaScript Form Validation](https://www.w3schools.com/js/js_validation.asp) -  This link directs to a W3Schools article that explains JavaScript form validation. It provides an easy-to-follow guide on how to validate user input in forms, covering common checks such as ensuring fields are not empty and that email addresses are correctly formatted. The article is in Spanish, but can be easily translated using Google Chrome's translation feature.
+
+-  [EmailJS Tutorial Overview](https://www.emailjs.com/docs/tutorial/overview/) -   This link leads to the EmailJS tutorial overview, which provides step-by-step guidance on how to integrate EmailJS into your JavaScript application. The tutorial explains how to set up an EmailJS account, connect email services, and send emails directly from client-side code without needing a backend. It's a beginner-friendly resource with clear instructions and example code to help you get started quickly. The page is in English, but you can translate it easily using Google Chrome’s translation feature.
 
 
 ##  👋 Author
